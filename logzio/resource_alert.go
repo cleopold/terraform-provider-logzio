@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"time"
 
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/logzio/logzio_terraform_client/alerts"
@@ -248,6 +249,7 @@ func resourceAlertCreate(d *schema.ResourceData, m interface{}) error {
 	alertId := strconv.FormatInt(a.AlertId, BASE_10)
 	d.SetId(alertId)
 
+  	time.Sleep(30 * time.Second)
 	return resourceAlertRead(d, m)
 }
 
